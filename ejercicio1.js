@@ -5,8 +5,13 @@ console.log(people);
 //2. unir los 2 objetos  en uno
 let user = {name: "Steve", age: 22}
 let details = {place: "Romania", hobby: "reading"};
-let userAndDetails = {...user, ...details}
+
+const userAndDetails = {...user, ...details}
 console.log(userAndDetails);
+
+Object.assign(user, details);
+console.log(user);
+
 //3. obtener la variable phone y dir
 user = {name: "Pedro", lastname: "poveda", details: {phone: 45536556, dir: "direccion 123"}}
 console.log(user.details.phone);
