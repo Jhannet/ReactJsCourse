@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+       /* let h2 = <h2 className="">titulo</h2>
+        //let h2 = React.createElement('h2', {id: 'heading2'}, 'Second React Element');
+        ReactDOM.render(<div>
+            <h1>Titulo</h1>
+            {h2}
+            </div>, document.getElementById('root'));*/
+        /*
+        class Frutas extends React.Component {
+            render(){
+                let fruitItem = "manzana";
+                return (<>
+                    <ul className="list">
+                        <li className="item">Mango</li>
+                        <li className="item">Platano</li>
+                        <li className="item">{fruitItem}</li>
+                    </ul>
+                </>);
+            }
+        }
+
+        ReactDOM.render(<Frutas/>, document.getElementById("root"));*/
+        const linkStyle = { color : 'RED' }
+        class Enlace extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <a className="link" href={this.props.url} style={linkStyle}>link google</a>
+                    </div>
+                );
+            }
+        }
+        ReactDOM.render(<Enlace url="http://google.com.bo"></Enlace>, document.getElementById("root"));
+    </script>
+</body>
+</html>
