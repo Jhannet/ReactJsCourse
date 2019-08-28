@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <div><button onclick="encenderFoco()">switch</button></div>
+    <img src="off.jpg" id="foco" width="200px">
+    
+    <script>
+        let flag = false;
+        let encenderFoco = () => {
+            let foco = document.getElementById('foco');
+            if(flag){
+                foco.setAttribute("src", "off.jpg");
+                flag = false;
+            }else{
+                foco.setAttribute("src", "on.jpg");
+                flag = true;
+            }
+        }
+    </script>
+</body>
+</html>
