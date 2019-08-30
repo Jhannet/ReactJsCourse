@@ -47,6 +47,7 @@ class Main extends React.Component {
                     </span>
                 </div>
                 <div className="card-body">
+                    <span>{todo.descripcion}</span>
                 </div>
                 <div className="card-footer">
                     <button className="btn btn-danger" onClick={this.eliminarItem.bind(this,todo.id)}>

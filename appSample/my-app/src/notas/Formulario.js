@@ -8,6 +8,7 @@ class Formulario extends Component {
             titulo: "",
             responsable: "",
             prioridad: "Baja",
+            descripcion: ""
         }
     }
 
@@ -19,6 +20,8 @@ class Formulario extends Component {
             this.setState({responsable: e.target.value})
         if(e.target.name === 'prioridad')
             this.setState({prioridad: e.target.value})
+        if(e.target.name === 'descripcion')
+            this.setState({descripcion: e.target.value})
         console.log(this.state);
     }
 
@@ -67,6 +70,16 @@ class Formulario extends Component {
                         <option>Media</option>
                         <option >Alta</option>
                         </select>
+                    </div>
+                    <div className="form-group">
+                        <input
+                        type="text"
+                        name="descripcion"
+                        className="form-control"
+                        placeholder="Descripcion"
+                        value={this.state.descripcion}
+                        onChange={(e)=>this.handleInput(e)}
+                        />
                     </div>
                     <button type="submit" className="btn btn-primary" >
                         Guardar
