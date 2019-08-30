@@ -1,5 +1,6 @@
 import React from 'react';
-import {notas} from '../notas'
+import {notas} from '../notas';
+import Formulario from './Formulario';
 
 /*const listaDeCards = notas.map((item, i) => {
     return (
@@ -15,7 +16,8 @@ class Main extends React.Component {
         console.log(notas);
         this.state = {
             notas
-        }
+        };
+        this.guardarItem = this.guardarItem.bind(this);
     }
     
     eliminarItem(index) {
@@ -23,6 +25,14 @@ class Main extends React.Component {
         this.setState({
           notas: this.state.notas.filter(item=>item.id !== index)
         })
+    }
+
+    guardarItem(objeto){
+        console.log("llego el objeto");
+        console.log(objeto);
+        this.setState({
+          notas: [...this.state.notas,objeto]
+        });
     }
 
     render() {
@@ -58,6 +68,7 @@ class Main extends React.Component {
                     </div>
                     <div className="col-md-4">
                       <h3>Formulario</h3>
+                      <Formulario guardarItem = {this.guardarItem}></Formulario>
                     </div>
                   </div>
                 </div>
