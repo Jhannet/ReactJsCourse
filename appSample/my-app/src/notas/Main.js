@@ -27,6 +27,14 @@ class Main extends React.Component {
         })
     }
 
+    actualizarItem(index) {
+        console.log(index,typeof index);
+        const item = this.state.notas.find(element => element.id === index);
+        /*this.setState({
+          notas: this.state.notas.filter(item=>item.id !== index)
+        })*/
+    }
+
     guardarItem(objeto){
         console.log("llego el objeto");
         console.log(objeto);
@@ -52,6 +60,9 @@ class Main extends React.Component {
                 <div className="card-footer">
                     <button className="btn btn-danger" onClick={this.eliminarItem.bind(this,todo.id)}>
                         Delete {todo.id}
+                    </button>
+                    <button className="btn btn-primary" onClick={this.actualizarItem.bind(this,todo.id)}>
+                        Update {todo.id}
                     </button>
                 </div>
                 </div>
