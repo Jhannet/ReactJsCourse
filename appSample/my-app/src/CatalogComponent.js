@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import {Media} from 'reactstrap';
+import {Card} from 'reactstrap';
+import {CardImg} from 'reactstrap';
+import {CardImgOverlay} from 'reactstrap';
+import {CardTitle} from 'reactstrap';
 
 class Catalog extends Component {
     constructor(props, context) {
@@ -49,18 +53,15 @@ class Catalog extends Component {
             maxWidth: 128
         };
     
-        var catalog= this.state.items.map(item => {
+        var catalog= this.props.items.map(item => {
             return (
-                <div key={item.id} className="col-12 mt-5">
-                    <Media tag="li">
-                        <Media left middle>
-                            <Media object src={item.image} style={imgStyle} alt={item.name} />
-                        </Media>
-                        <Media body className="ml-5">
-                            <Media heading>{item.name}</Media>
-                            <p>{item.description}</p>
-                        </Media>
-                    </Media>
+                <div key={item.id} className="col-12 col-md-5 m-1">
+                    <Card>
+                            <CardImg width="100%" src={item.image} alt={item.name}/>
+                        <CardImgOverlay>
+                            <CardTitle>{item.name}</CardTitle>
+                        </CardImgOverlay>
+                    </Card>
                 </div>
             );
         });
