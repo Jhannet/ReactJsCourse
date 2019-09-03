@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
-import {Media} from 'reactstrap';
-import {Card} from 'reactstrap';
-import {CardImg} from 'reactstrap';
-import {CardImgOverlay} from 'reactstrap';
-import {CardTitle} from 'reactstrap';
+import {Media,Card, CardBody, CardImg, CardImgOverlay, CardText, CardTitle} from 'reactstrap';
 
 class Catalog extends Component {
     constructor(props, context) {
         super(props, context);
     
         this.state={
+            selectedItem: null,
             items:[
                 {
                     name: 'Helmet',
@@ -47,6 +44,33 @@ class Catalog extends Component {
         }
     }
     
+    onItemSelect(item) {
+        this.setState({
+            selectedItem: item
+        })
+    }
+
+    renderItem(item) {
+        if (item != null) {
+            return (
+                <Card className="col-5">
+                    <CardImg width="100%" 
+     src={item.image} alt={item.name}/>
+                    <CardBody>
+                        <CardTitle>{item.name}</CardTitle>
+                        <CardText>{item.description}</CardText>
+                    </CardBody>
+                </Card>
+            );
+    
+        } else {
+            return (
+                <div/>
+            );
+        }
+    
+    }
+    
     render() {
         const imgStyle = {
             maxHeight: 128,
@@ -56,7 +80,7 @@ class Catalog extends Component {
         var catalog= this.props.items.map(item => {
             return (
                 <div key={item.id} className="col-12 col-md-5 m-1">
-                    <Card>
+                    <Card onClick={()=>{this.onItemSelect(item)}}>
                             <CardImg width="100%" src={item.image} alt={item.name}/>
                         <CardImgOverlay>
                             <CardTitle>{item.name}</CardTitle>
@@ -72,6 +96,9 @@ class Catalog extends Component {
                     <Media list>
                         {catalog}
                     </Media>
+                </div>
+                <div className="row">
+                    {this.renderItem(this.state.selectedItem)}
                 </div>
             </div>
         );
